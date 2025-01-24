@@ -194,9 +194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 519420028}
+  deathField: {fileID: 1814116805}
   playerCharacter: {fileID: 1705136213}
-  rb: {fileID: 0}
   pastPosition: {x: 0, y: 0}
+  scoreText: {fileID: 820253871}
 --- !u!114 &497273810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5286665978468221409, guid: cc663ad2e7eba814e8c4a0137dea55c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6056
+      value: 19.4124
       objectReference: {fileID: 0}
     - target: {fileID: 5286665978468221409, guid: cc663ad2e7eba814e8c4a0137dea55c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -851,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677125181025257360, guid: 096fd69e559558140ac1c5f369cc4e93, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6708
+      value: 18.5154
       objectReference: {fileID: 0}
     - target: {fileID: 5677125181025257360, guid: 096fd69e559558140ac1c5f369cc4e93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -904,11 +905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5827671139642885795, guid: 3b5b1df83c2dba04c8051846a30e5c10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5827671139642885795, guid: 3b5b1df83c2dba04c8051846a30e5c10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.81
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 5827671139642885795, guid: 3b5b1df83c2dba04c8051846a30e5c10, type: 3}
       propertyPath: m_LocalPosition.z
@@ -974,3 +975,6 @@ SceneRoots:
   - {fileID: 820324665359748244}
   - {fileID: 2057561143}
   - {fileID: 497273808}
+  - {fileID: 2095551655}
+  - {fileID: 2035029527}
+  - {fileID: 1814116807}
