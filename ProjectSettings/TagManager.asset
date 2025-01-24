@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Death
+  - Wall0
+  - Wall1
+  - Fish
   layers:
   - Default
   - TransparentFX
