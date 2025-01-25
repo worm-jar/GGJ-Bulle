@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
         {
             randomDirection = 1;
         }
-        if (collision.gameObject.CompareTag("Fish"))
+        if (collision.gameObject.CompareTag("Fish")||collision.gameObject.CompareTag("Respawn"))
         {
             if (randomDirection == 1)
             {

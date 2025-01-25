@@ -104,11 +104,11 @@ public class PlayerCharacter2D : MonoBehaviour
     {
         float xMovement = 0f;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             xMovement += 1;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
         {
             xMovement += -1;
         }
