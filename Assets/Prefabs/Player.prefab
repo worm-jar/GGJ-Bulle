@@ -129,7 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6889b2f954690e46972637bb48cbb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCam: {fileID: 5405567563736959474, guid: 2a0e9fa746191aa4297a47921ee9f766, type: 3}
+  MainCam: {fileID: 0}
+  Bullet: {fileID: 2615071288575511942, guid: ea89148729ab79a4898bd6907aa61ced, type: 3}
+  BulletTransform: {fileID: 3539645261610953785}
+  CanFire: 0
+  TimeBetweenFiring: 2
 --- !u!1 &5826300055635673180
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +284,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &4705990776918463001
 CapsuleCollider2D:
@@ -314,8 +318,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 0.011014402}
+  m_Size: {x: 1, y: 1.9779712}
   m_Direction: 0
 --- !u!114 &467699303422977760
 MonoBehaviour:
@@ -329,11 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edec45afcfde1264d87d1bab3cf0cbcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  healthText: {fileID: 0}
   respawnPoint: {x: 0, y: 0}
   deathPos: {fileID: 1897151767023671166, guid: e4aff15b9a10f9141a23758f5c167fb3, type: 3}
-  camera: {fileID: 0}
+  cameraObj: {fileID: 0}
 --- !u!95 &8711124288179667028
 Animator:
   serializedVersion: 5
@@ -375,7 +377,7 @@ MonoBehaviour:
   checkRadius: 0.3
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   JumpTime: 0.35
   GlidingSpeed: 0.5
 --- !u!114 &1573771602603586209
@@ -390,11 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bfa35f80e018e458f9a070e6be36d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  healthText: {fileID: 0}
   invincible: 0
   rb: {fileID: 0}
-  timer: 0
+  cameraObj: {fileID: 0}
 --- !u!114 &2327111122999009880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dfd1f987f82274bb8a9db811bfd03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cameraObj: {fileID: 0}
   deathField: {fileID: 0}
   playerCharacter: {fileID: 7150662347589369031}
   pastPosition: {x: 0, y: 0}
@@ -424,5 +424,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad54c82df5358964baac2157ace1f03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
   healthText: {fileID: 0}

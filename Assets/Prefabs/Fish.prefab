@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 91010933489747241}
   - component: {fileID: 4454777450210416938}
   - component: {fileID: -6360751884339960996}
-  - component: {fileID: -6415227722979638177}
+  - component: {fileID: -5168733120306797412}
   m_Layer: 6
   m_Name: Fish
   m_TagString: Fish
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 240e2112d7637b443b7e61eedbea0720, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.4444444, y: 2.4444444}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -171,8 +171,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &-6415227722979638177
+  m_Constraints: 4
+--- !u!114 &-5168733120306797412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,8 +181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 832969690579449861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e42b4fb34afba0478a028561f005c6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 40b37343408bfcd4593d69815bcd1732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 832969690579449861}
   rb: {fileID: 0}
+  right: 0
+  check: 0
+  _sprite: {fileID: 0}

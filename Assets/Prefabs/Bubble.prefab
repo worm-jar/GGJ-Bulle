@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3471055104049451163}
   m_Layer: 0
   m_Name: Bubble
-  m_TagString: Untagged
+  m_TagString: BubbleShoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCam: {fileID: 6122519515485754622, guid: 7d3a7215e665e4c4888e2c5ae55ea3ef, type: 3}
+  player: {fileID: 7150662347589369031, guid: 3b5b1df83c2dba04c8051846a30e5c10, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  _col: {fileID: 0}
   force: 10
   BouncyBubble: {fileID: 7755553509115020508, guid: 528a16df8251a8a458a046d13385c871, type: 3}
 --- !u!50 &-8502422083952091141

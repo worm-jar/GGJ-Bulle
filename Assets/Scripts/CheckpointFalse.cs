@@ -20,7 +20,6 @@ public class CheckpointFalse : MonoBehaviour
         if (other.CompareTag("Death"))
         {
             EnemySpawn.CheckpointSpawned = false;
-            Debug.Log("False");
         }
     }
 }

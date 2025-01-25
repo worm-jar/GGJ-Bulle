@@ -24,12 +24,19 @@ public class EnemySpawn : MonoBehaviour
     {
         while (fishCount > 0) 
         {
-            spawnPosition.x = Random.Range(-10, 10);
-            spawnPosition.y = Random.Range(playerCharacter.transform.position.y + 5.5f, playerCharacter.transform.position.y + 20);
+            if (EnemyMovement.direction == 1)
+            {
+                spawnPosition.x = 15;
+            }
+            else
+            {
+                spawnPosition.x = -15;
+            }
+            spawnPosition.y = Random.Range(playerCharacter.transform.position.y + 5.5f, playerCharacter.transform.position.y + 10);
             Instantiate(fish, spawnPosition, Quaternion.identity);
             fishCount--;
         }
-        randomChanceCheckpoint = Random.Range(1, 1000);
+        randomChanceCheckpoint = Random.Range(1, 3000);
         if (randomChanceCheckpoint == 1 && !CheckpointSpawned)
         {
             spawnPosition.x = Random.Range(-5, 5);

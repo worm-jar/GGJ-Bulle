@@ -8,6 +8,9 @@ TagManager:
   - Wall0
   - Wall1
   - Fish
+  - Bubble
+  - BG
+  - BubbleShoot
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Fish
   - Invincible
   - Death
-  - 
+  - BouncyBubble
   - 
   - 
   - 

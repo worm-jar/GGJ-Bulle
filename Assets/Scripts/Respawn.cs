@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respawn : PlayerInfo
+public class Respawn : MonoBehaviour
 {
 
     public Vector2 respawnPoint;
     public GameObject deathPos;
-    public GameObject camera;
+    public GameObject cameraObj;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class Respawn : PlayerInfo
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
+
     }
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -31,12 +31,12 @@ public class Respawn : PlayerInfo
     {
         if (other.gameObject.CompareTag("Death"))
         {
-            deathPos.transform.position = new Vector3(0f, respawnPoint.y - 9f, -10f);
+            deathPos.transform.position = new Vector3(0f, respawnPoint.y - 11f, -10f);
             this.gameObject.transform.position = respawnPoint;
-            camera.transform.position = new Vector3(0f, respawnPoint.y, -10f);
+            cameraObj.transform.position = new Vector3(0f, respawnPoint.y, -10f);
             if (this.gameObject.layer == 0)
             {
-                health--;
+                PlayerInfo.health--;
             }
         }
     }
