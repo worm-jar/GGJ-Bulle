@@ -24,10 +24,20 @@ public class CameraMovement : MonoBehaviour
         if (playerCharacter.transform.position.y > camera.transform.position.y)
         {
             camera.transform.position = new Vector3(0, playerCharacter.transform.position.y, -10);
-            deathField.transform.position = new Vector3(0, playerCharacter.transform.position.y - 5.0f, -10);
+            deathField.transform.position = new Vector3(0, playerCharacter.transform.position.y - 13f, -10);
             pastPosition = playerCharacter.transform.position;
         }
-        int intPos = (int) pastPosition.y;
-        scoreText.text = ("Score: " + intPos.ToString());
+        if (pastPosition.y > playerCharacter.transform.position.y)
+        {
+            int intPos = (int)pastPosition.y;
+            scoreText.text = ("Score: " + intPos.ToString());
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            deathField.transform.position = new Vector3(0f, playerCharacter.transform.position.y - 13f, -10f);
+        }
     }
 }

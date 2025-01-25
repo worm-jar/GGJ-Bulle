@@ -6,7 +6,7 @@ public class Cannon : MonoBehaviour
     public Camera MainCam;
     void Awake()
     {
-        MainCam = GetComponent<Camera>();
+
     }
     
     void Update()
