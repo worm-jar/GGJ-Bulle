@@ -10,8 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1076471993421118293}
   - component: {fileID: 7155315927226740567}
-  - component: {fileID: 6752218100335906720}
   - component: {fileID: 2897869049614541018}
+  - component: {fileID: 3018993413382089130}
+  - component: {fileID: 582401724204175485}
+  - component: {fileID: 5356836594591891737}
+  - component: {fileID: 6446064587001005974}
+  - component: {fileID: 6982322902218738727}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,23 +53,6 @@ MonoBehaviour:
   wall0: {fileID: 0}
   wall1: {fileID: 0}
   playerCharacter: {fileID: 0}
---- !u!114 &6752218100335906720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3871267366136683710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b24e7ddb809d9246bd866a512bc7ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fish: {fileID: 832969690579449861, guid: 40e1908b90655d24bb4d5347315d1636, type: 3}
-  spawnPosition: {x: 0, y: 0, z: 0}
-  playerCharacter: {fileID: 0}
-  randomChanceCheckpoint: 0
-  checkpoint: {fileID: 2425453249282462867, guid: 4281a1c297fb2d246a83af4f50a036c7, type: 3}
 --- !u!114 &2897869049614541018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +65,166 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dfd1f987f82274bb8a9db811bfd03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 7616841117198284602, guid: 2a0e9fa746191aa4297a47921ee9f766, type: 3}
+  cameraObj: {fileID: 0}
   deathField: {fileID: 1897151767023671166, guid: e4aff15b9a10f9141a23758f5c167fb3, type: 3}
   playerCharacter: {fileID: 7150662347589369031, guid: 3b5b1df83c2dba04c8051846a30e5c10, type: 3}
   pastPosition: {x: 0, y: 0}
   scoreText: {fileID: 0}
+--- !u!114 &3018993413382089130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871267366136683710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec45afcfde1264d87d1bab3cf0cbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {x: 0, y: 0}
+  deathPos: {fileID: 0}
+  cameraObj: {fileID: 0}
+--- !u!114 &582401724204175485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871267366136683710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96884c87f7cdff4cbeb084a567a876f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fish: {fileID: 832969690579449861, guid: 40e1908b90655d24bb4d5347315d1636, type: 3}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  playerCharacter: {fileID: 0}
+  randomChanceCheckpoint: 0
+  checkpoint: {fileID: 2425453249282462867, guid: 4281a1c297fb2d246a83af4f50a036c7, type: 3}
+  rb: {fileID: 0}
+  Rando: 0
+  playerPos: {x: 0, y: 0, z: 0}
+--- !u!114 &5356836594591891737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871267366136683710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54c82df5358964baac2157ace1f03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+--- !u!114 &6446064587001005974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871267366136683710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ae10053e6fb234091b193f5a563f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  BG: {fileID: 3931684760687745448, guid: ac269e95e2622e74884c49cb855d742d, type: 3}
+--- !u!82 &6982322902218738727
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871267366136683710}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

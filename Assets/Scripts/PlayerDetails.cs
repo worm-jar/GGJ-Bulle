@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerDetails : PlayerInfo
+public class PlayerDetails : MonoBehaviour
 {
 
     public bool invincible;
     public Rigidbody2D rb;
+    float shake = 0f;
+    float shakeAmount = 10f;
+    float decreaseFactor = 1.0f;
+    public Camera cameraObj; 
+    public AudioSource _aud;
+    public AudioClip _clip;
+    public AudioClip _clip0;
+    public AudioClip _clip1;
 
     // Start is called before the first frame update
     void Start()
@@ -18,33 +26,43 @@ public class PlayerDetails : PlayerInfo
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
+
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Fish"))
         {
-            health--;
-            rb.velocity = new Vector2(collision.gameObject.transform.position.x - this.gameObject.transform.position.x, 8.0f);
+
+            PlayerInfo.health--;
+            _aud.clip = _clip;
+            _aud.Play();
+            rb.velocity = new Vector2(this.gameObject.transform.position.x - collision.gameObject.transform.position.x, 8.0f);
             NoDamage();
         }
+        if (collision.gameObject.CompareTag("Bubble"))
+            {
+            _aud.clip = _clip0;
+            _aud.Play();
+        }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Death"))
         {
+            _aud.clip = _clip1;
+            _aud.Play();
             NoDamage();
         }
 
     }
-    public void NoDamage()
+    void NoDamage()
     {
         this.gameObject.layer = LayerMask.NameToLayer("Invincible");
         StartCoroutine(BackToDefault());
     }
-    public IEnumerator BackToDefault()
+    IEnumerator BackToDefault()
     {
-        yield return new WaitForSeconds(01.8f);
+        yield return new WaitForSeconds(1.8f);
         this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 }

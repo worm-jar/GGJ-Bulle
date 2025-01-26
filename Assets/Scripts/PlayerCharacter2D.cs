@@ -45,6 +45,8 @@ public class PlayerCharacter2D : MonoBehaviour
     private bool IsActivating;
     public SpriteRenderer headS, jetpackS, legsS;
 
+    public AudioSource _aud;
+    public AudioClip _clip;
     /// <summary>
     /// The component used to make this character move and jump.
     /// </summary>
@@ -176,9 +178,12 @@ public class PlayerCharacter2D : MonoBehaviour
 
         if (IsGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            _aud.clip = _clip;
+            _aud.Play();
             IsJumping = true;
             JumpTimeCounter = JumpTime;
             _rigidbody.velocity = Vector2.up * jumpForce;
+            
         }
 
         if (Input.GetKey(KeyCode.Space) && IsJumping)
@@ -187,6 +192,7 @@ public class PlayerCharacter2D : MonoBehaviour
             {
                 _rigidbody.velocity = Vector2.up * jumpForce;
                 JumpTimeCounter -= Time.deltaTime;
+                
             }
             else
             {

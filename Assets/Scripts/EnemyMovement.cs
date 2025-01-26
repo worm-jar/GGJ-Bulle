@@ -7,20 +7,21 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject fish;
     public Rigidbody2D rb;
-    private int randomDirection;
-
+    public static int direction;
+    public Vector3 spawnPosition;
+    public GameObject playerCharacter;
     // Start is called before the first frame update
     void Awake()
     {
         fish = this.gameObject;
         rb = fish.GetComponent<Rigidbody2D>();
-        randomDirection = Random.Range(0, 1);
+        direction = Random.Range(0, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (randomDirection == 1)
+        if (direction == 1)
         {
             rb.velocity = new Vector2(2f, -0.5f);
         }
@@ -28,26 +29,40 @@ public class EnemyMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(-2f, -0.5f);
         }
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wall1"))
+        while (EnemySpawn.fishCount > 0)
         {
-            randomDirection = 0;
-        }
-        if (collision.gameObject.CompareTag("Wall0"))
-        {
-            randomDirection = 1;
-        }
-        if (collision.gameObject.CompareTag("Fish")||collision.gameObject.CompareTag("Respawn"))
-        {
-            if (randomDirection == 1)
+            if (EnemyMovement.direction == 1)
             {
-                randomDirection = 0;
+                spawnPosition.x = 15;
             }
             else
             {
-                randomDirection = 1;
+                spawnPosition.x = -15;
+            }
+            spawnPosition.y = Random.Range(playerCharacter.transform.position.y + 5.5f, playerCharacter.transform.position.y + 10);
+            Instantiate(fish, spawnPosition, Quaternion.identity);
+            EnemySpawn.fishCount--;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.CompareTag("Wall1"))
+        //{
+        //    randomDirection = 0;
+        //}
+        //if (collision.gameObject.CompareTag("Wall0"))
+        //{
+        //    randomDirection = 1;
+        //}
+        if (collision.gameObject.CompareTag("Fish")||collision.gameObject.CompareTag("Respawn"))
+        {
+            if (direction == 1)
+            {
+                direction = 0;
+            }
+            else
+            {
+                direction = 1;
             }
         }
     }
