@@ -40,6 +40,8 @@ public class PlayerCharacter2D : MonoBehaviour
     public float GlidingSpeed = 1;
     private float _InitialGravityScale;
 
+    public AudioSource _aud;
+    public AudioClip _clip;
     /// <summary>
     /// The component used to make this character move and jump.
     /// </summary>
@@ -152,15 +154,19 @@ public class PlayerCharacter2D : MonoBehaviour
         // GetKey() here, the character would jump every frame!
         if (IsGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
+            _aud.clip = _clip;
+            _aud.Play();
             IsJumping = true;
             JumpTimeCounter = JumpTime;
             _rigidbody.velocity = Vector2.up * jumpForce;
+            
         }
         if (Input.GetKey(KeyCode.Space) && IsJumping == true)
             if (JumpTimeCounter > 0)
             {
                 _rigidbody.velocity = Vector2.up * jumpForce;
                 JumpTimeCounter -= Time.deltaTime;
+                
             }
             else
             { 
@@ -174,7 +180,7 @@ public class PlayerCharacter2D : MonoBehaviour
 
     private void UpdateJetpack()
     {
-        if (_rigidbody.velocity.y <=0 && Input.GetKey(KeyCode.Space))
+        if (_rigidbody.velocity.y <=0 && Input.GetKey(KeyCode.LeftShift))
         {
             _rigidbody.gravityScale = 0;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x , -GlidingSpeed);

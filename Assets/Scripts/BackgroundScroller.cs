@@ -21,7 +21,7 @@ public class BackgroundScroller : MonoBehaviour
     {
         if (other.CompareTag("BG"))
         {
-            Instantiate(BG, new Vector2(0, other.transform.position.y + 43.2f), Quaternion.identity);
+            Instantiate(BG, new Vector3(0, other.transform.position.y + 43.2f, 12f), Quaternion.identity);
         }
     }
 }

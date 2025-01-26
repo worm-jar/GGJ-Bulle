@@ -11,7 +11,11 @@ public class PlayerDetails : MonoBehaviour
     float shake = 0f;
     float shakeAmount = 10f;
     float decreaseFactor = 1.0f;
-    public Camera cameraObj;
+    public Camera cameraObj; 
+    public AudioSource _aud;
+    public AudioClip _clip;
+    public AudioClip _clip0;
+    public AudioClip _clip1;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +34,23 @@ public class PlayerDetails : MonoBehaviour
         {
 
             PlayerInfo.health--;
-            rb.velocity = new Vector2(collision.gameObject.transform.position.x - this.gameObject.transform.position.x, 8.0f);
+            _aud.clip = _clip;
+            _aud.Play();
+            rb.velocity = new Vector2(this.gameObject.transform.position.x - collision.gameObject.transform.position.x, 8.0f);
             NoDamage();
+        }
+        if (collision.gameObject.CompareTag("Bubble"))
+            {
+            _aud.clip = _clip0;
+            _aud.Play();
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Death"))
         {
+            _aud.clip = _clip1;
+            _aud.Play();
             NoDamage();
         }
 
@@ -49,7 +62,7 @@ public class PlayerDetails : MonoBehaviour
     }
     IEnumerator BackToDefault()
     {
-        yield return new WaitForSeconds(01.8f);
+        yield return new WaitForSeconds(1.8f);
         this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 }

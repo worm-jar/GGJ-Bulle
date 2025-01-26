@@ -8,6 +8,8 @@ public class Respawn : MonoBehaviour
     public Vector2 respawnPoint;
     public GameObject deathPos;
     public GameObject cameraObj;
+    public AudioSource _aud;
+    public AudioClip _clip;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class Respawn : MonoBehaviour
         if (other.gameObject.CompareTag("Respawn"))
         {
             respawnPoint = new Vector2(other.transform.position.x, other.transform.position.y + 3);
+            _aud.clip = _clip;
+            _aud.Play();
         }
     }
     void OnTriggerEnter2D(Collider2D other)

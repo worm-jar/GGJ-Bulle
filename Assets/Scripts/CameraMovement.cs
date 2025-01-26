@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject playerCharacter;
     public Vector2 pastPosition;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class CameraMovement : MonoBehaviour
         {
             int intPos = (int)pastPosition.y;
             scoreText.text = ("Score: " + intPos.ToString());
+            scoreTextDeath.text = ("Score: " + intPos.ToString());
         }
     }
     void OnTriggerEnter2D(Collider2D other)
