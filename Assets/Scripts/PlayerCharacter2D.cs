@@ -32,13 +32,18 @@ public class PlayerCharacter2D : MonoBehaviour
     public Transform FeetPos;
     public float checkRadius;
     public LayerMask WhatIsGround;
-    
+
+    public float GlidingSpeed = 1;
+    private float _InitialGravityScale;
+    private bool IsGliding;
+    private bool IsDeactivating;
+    private bool IsActivating;
+    public SpriteRenderer headS, jetpackS, legsS;
+
     private float JumpTimeCounter;
     public float JumpTime;
     private bool IsJumping;
 
-    public float GlidingSpeed = 1;
-    private float _InitialGravityScale;
 
     public AudioSource _aud;
     public AudioClip _clip;
@@ -79,25 +84,43 @@ public class PlayerCharacter2D : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        // We use separate functions to handle the inputs and behavior of the character, making things clear in this Update() function
         UpdateMovement();
         UpdateJump();
         UpdateJetpack();
         ClampVelocity();
 
-        
-        // If the velocity is positive, it means the character is moving toward right. If it's negative, it's moving toward left. And
-        // because we can use the velocity value to know the current direction of the character, here we use it to flip the sprite
-        // horizontally if it's moving toward left, making the sprite displayed on screen also looking toward left.
+        // Flip sprite based on movement direction
         _spriteRenderer.flipX = _rigidbody.velocity.x < 0;
-        // We use the speed of the character as a parameter in the Animator, so it can plays the "idle" or "move" animations accordingly,
-        // or even play "walk" or "run" depending on how high is that speed.
-        _animator.SetFloat("speed", Mathf.Abs(_rigidbody.velocity.x));
-        // Just like for horizontal movement, we can know if the character is jumping or falling by just checking the Y value of its
-        // velocity. If it's positive, the character is jumping. If it's negative, it's falling.
-        _animator.SetBool("isJumping", IsJumping = true);
-        _animator.SetBool("isFalling", _rigidbody.velocity.y < 0);
+        // Animation state updates
+        if (IsGrounded && !_animator.GetBool("IsJumping") && !_animator.GetBool("isFalling"))
+        {
+            _animator.SetFloat("xVelocity", Mathf.Abs(_rigidbody.velocity.x));
+        }
+        else
+        {
+            _animator.SetFloat("xVelocity", 0); // Ensures Walk animation won't play while jumping or falling
+        }
+
+        _animator.SetBool("isFalling", _rigidbody.velocity.y < 0 && !IsGrounded);
+
+        // Update jumping/falling/gliding animation logic
+        if (_rigidbody.velocity.y > 0 && !IsGrounded)
+        {
+            _animator.SetBool("IsJumping", true);
+            _animator.SetBool("isFalling", false);
+        }
+        else if (_rigidbody.velocity.y < 0 && !IsGrounded)
+        {
+            _animator.SetBool("IsJumping", false);
+            _animator.SetBool("isFalling", true);
+        }
+        else
+        {
+            _animator.SetBool("IsJumping", false);
+            _animator.SetBool("isFalling", false);
+        }
     }
+
 
     /// <summary>
     /// Checks for movement inputs (arrow keys), and add acceleration force to make the character move accordingly.
@@ -180,14 +203,49 @@ public class PlayerCharacter2D : MonoBehaviour
 
     private void UpdateJetpack()
     {
-        if (_rigidbody.velocity.y <=0 && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            _rigidbody.gravityScale = 0;
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x , -GlidingSpeed);
+            if (_rigidbody.velocity.y <= 0) // Only activate if falling
+            {
+                if (!IsActivating)
+                {
+                    IsActivating = true;
+                    IsDeactivating = false;
+                    _animator.SetTrigger("ActivateJetpack");
+                }
+
+                // Start Gliding
+                _rigidbody.gravityScale = 0; // No gravity during gliding
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, -JetpackForce); // Control downward movement
+                IsGliding = true;
+                _animator.SetBool("IsGliding", true);
+            }
         }
         else
         {
-            _rigidbody.gravityScale = _InitialGravityScale;
+            if (IsActivating)
+            {
+                IsActivating = false;
+                IsDeactivating = true;
+                _animator.SetTrigger("DeactivateJetpack");
+            }
+
+            // Restore gravity when not gliding
+            if (IsGliding)
+            {
+                _rigidbody.gravityScale = _InitialGravityScale;
+                _animator.SetBool("IsGliding", false);
+                IsGliding = false;
+            }
+        }
+
+        // Ensuring the DeactivateJetpack animation plays properly
+        if (IsDeactivating)
+        {
+            if (_rigidbody.velocity.y >= 0) // Only stop when upwards or at rest
+            {
+                IsDeactivating = false;
+            }
         }
     }
 
