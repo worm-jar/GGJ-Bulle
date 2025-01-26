@@ -17,13 +17,13 @@ public class PlayerCharacter2D : MonoBehaviour
 {
 
     [Tooltip("The force to apply to make this character move.")]
-    public float movementAcceleration = 20f;
+    public float movementAcceleration = 0f;
 
     [Tooltip("The maximum speed (in units/s) of this character along the X axis.")]
-    public float maxMovementSpeed = 4f;
+    public float maxMovementSpeed = 8f;
 
     [Tooltip("The upward force applied to this character when pressing the Jump input.")]
-    public float jumpForce = 16f;
+    public float jumpForce = 100f;
 
     [Tooltip("The upward force that slows the fall of your character when pressing the Jetpack input")]
     public float JetpackForce = 0.5f;
@@ -127,6 +127,7 @@ public class PlayerCharacter2D : MonoBehaviour
     /// </summary>
     private void UpdateMovement()
     {
+
         float xMovement = 0f;
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -137,7 +138,7 @@ public class PlayerCharacter2D : MonoBehaviour
         {
             xMovement += -1;
         }
-
+        Debug.Log(xMovement);
         // If the character is not moving
         if (xMovement == 0)
         {
@@ -181,13 +182,13 @@ public class PlayerCharacter2D : MonoBehaviour
             _aud.Play();
             IsJumping = true;
             JumpTimeCounter = JumpTime;
-            _rigidbody.velocity = Vector2.up * jumpForce;
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce); 
             
         }
         if (Input.GetKey(KeyCode.Space) && IsJumping == true)
             if (JumpTimeCounter > 0)
             {
-                _rigidbody.velocity = Vector2.up * jumpForce;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce); 
                 JumpTimeCounter -= Time.deltaTime;
                 
             }
@@ -205,6 +206,11 @@ public class PlayerCharacter2D : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            if (_rigidbody.velocity.y > 0)
+            {
+                _rigidbody.gravityScale = _InitialGravityScale;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
+            }
             if (_rigidbody.velocity.y <= 0) // Only activate if falling
             {
                 if (!IsActivating)

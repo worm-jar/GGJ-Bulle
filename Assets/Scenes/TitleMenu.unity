@@ -433,6 +433,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2730160928228669660, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730160928228669660, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730160928228669660, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_isRichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_enableKerning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: checkPaddingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_enableExtraPadding
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_parseCtrlCharacters
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_geometrySortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_useMaxVisibleDescender
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252201846245479141, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_IsTextObjectScaleStatic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866315219423112838, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060526375705897495, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Gone
+      objectReference: {fileID: 0}
     - target: {fileID: 7532132140673022556, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
       propertyPath: m_Pivot.x
       value: 0

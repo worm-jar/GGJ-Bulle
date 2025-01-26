@@ -363,6 +363,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas1
       objectReference: {fileID: 0}
+    - target: {fileID: 2389984903865911183, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389984903865911183, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389984903865911183, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 4054547901302177597, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -378,6 +390,18 @@ PrefabInstance:
     - target: {fileID: 5228064781680855850, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292613620431196236, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292613620431196236, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292613620431196236, guid: c52988ced37b352459e4d1a1023d4f97, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

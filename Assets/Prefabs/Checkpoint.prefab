@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90f6387c6b598d489f1c3cdb67ba8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnFish: {fileID: 809141573022213431, guid: 39159e812f2581e489d9d196211d7e27, type: 3}

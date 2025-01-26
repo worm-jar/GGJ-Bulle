@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RespawnOnce : MonoBehaviour
 {
+    public GameObject respawnFish;
     // Start is called before the first frame update
     void Start()
     {
