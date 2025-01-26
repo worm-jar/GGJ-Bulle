@@ -31,7 +31,7 @@ public class Respawn : PlayerInfo
     {
         if (other.gameObject.CompareTag("Death"))
         {
-            deathPos.transform.position = new Vector3(0f, respawnPoint.y - 9f, -10f);
+            deathPos.transform.position = new Vector3(0f, respawnPoint.y - 8f, -10f);
             this.gameObject.transform.position = respawnPoint;
             camera.transform.position = new Vector3(0f, respawnPoint.y, -10f);
             if (this.gameObject.layer == 0)

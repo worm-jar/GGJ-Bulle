@@ -20,7 +20,7 @@ public class BubbleScript : MonoBehaviour
         Vector3 rotation = transform.position - MousePos;
         _rb.velocity = new Vector3(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+        transform.rotation = Quaternion.Euler(0, 0, rot +120);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +28,6 @@ public class BubbleScript : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyMovement>())
         {
             Instantiate(BouncyBubble, collision.transform.position, Quaternion.identity);
-            Destroy(collision.gameObject.GetComponent<Rigidbody2D>());
             Destroy(this.gameObject);
             
         }

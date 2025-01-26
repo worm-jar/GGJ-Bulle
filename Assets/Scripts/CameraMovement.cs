@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
         if (playerCharacter.transform.position.y > camera.transform.position.y)
         {
             camera.transform.position = new Vector3(0, playerCharacter.transform.position.y, -10);
-            deathField.transform.position = new Vector3(0, playerCharacter.transform.position.y - 13f, -10);
+            deathField.transform.position = new Vector3(0, playerCharacter.transform.position.y - 8f, -10);
             pastPosition = playerCharacter.transform.position;
         }
         if (pastPosition.y > playerCharacter.transform.position.y)
@@ -37,7 +37,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Death"))
         {
-            deathField.transform.position = new Vector3(0f, playerCharacter.transform.position.y - 13f, -10f);
+            deathField.transform.position = new Vector3(0f, playerCharacter.transform.position.y - 8f, -10f);
         }
     }
 }
