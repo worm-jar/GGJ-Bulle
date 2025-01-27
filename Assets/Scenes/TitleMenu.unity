@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &367072560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 10148798973757685, guid: 51d72fcbb3b51474cb828cc1947b670d, type: 3}
-  m_PrefabInstance: {fileID: 1334163294575030968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &498365846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,22 +130,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 654774708620590435, guid: e2390d3cc12f2cd4b9d72ff7faefe518, type: 3}
-      propertyPath: Canv0
-      value: 
-      objectReference: {fileID: 367072560}
-    - target: {fileID: 654774708620590435, guid: e2390d3cc12f2cd4b9d72ff7faefe518, type: 3}
-      propertyPath: Canv1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 654774708620590435, guid: e2390d3cc12f2cd4b9d72ff7faefe518, type: 3}
-      propertyPath: Canvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 654774708620590435, guid: e2390d3cc12f2cd4b9d72ff7faefe518, type: 3}
-      propertyPath: Canvas1
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7557726942062578502, guid: e2390d3cc12f2cd4b9d72ff7faefe518, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.31983143
