@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerDetails : MonoBehaviour
 {
 
-    public bool invincible;
+    public bool Invincible;
     public Rigidbody2D rb;
     float shake = 0f;
     float shakeAmount = 10f;
@@ -16,6 +16,7 @@ public class PlayerDetails : MonoBehaviour
     public AudioClip _clip;
     public AudioClip _clip0;
     public AudioClip _clip1;
+    public Animator _animator = null;
 
     // Start is called before the first frame update
     void Start()
@@ -57,12 +58,16 @@ public class PlayerDetails : MonoBehaviour
     }
     void NoDamage()
     {
+        _animator.SetBool("Invincible", true);
+        TurnOffSprite.On = true;
         this.gameObject.layer = LayerMask.NameToLayer("Invincible");
         StartCoroutine(BackToDefault());
     }
     IEnumerator BackToDefault()
     {
         yield return new WaitForSeconds(1.8f);
+        _animator.SetBool("Invincible", false);
+        TurnOffSprite.On = false;
         this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 }

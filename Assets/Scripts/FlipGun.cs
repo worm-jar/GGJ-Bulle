@@ -33,6 +33,7 @@ public class FlipGun : MonoBehaviour
             _vector.y *= -1;
             transform.localScale = _vector;
             check = false;
+
         }
     }
 }

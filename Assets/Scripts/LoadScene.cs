@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
 
-    public GameObject Canv0, Canv1;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,28 +17,30 @@ public class LoadScene : MonoBehaviour
     {
 
     }
-    public void Quit()
+    public void Gone()
     {
+        Time.timeScale = 1;
         Application.Quit();
     }
     public void PlayScene()
     {
         Time.timeScale = 1;
+        TurnOffSprite.On = false;
         SceneManager.LoadScene("SampleScene");  
     }
     public void MenuScene()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("TitleMenu");
-        Destroy(this.gameObject);
     }
     public void Credits()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Credits");
     }
     public void Title()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("TitleMenu");
-        Destroy(this.gameObject);
     }
 }

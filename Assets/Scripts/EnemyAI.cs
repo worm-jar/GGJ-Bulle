@@ -18,13 +18,12 @@ public class EnemyAI : MonoBehaviour
     {
         rb = fish.GetComponent<Rigidbody2D>();
         StartCoroutine(wait());
-        playerCharacter = GameObject.Find("Player");
+        playerCharacter = GameObject.Find("Player 1");
     }
 
     // Update is called once per frame
     void Update()
     {
-
         playerPos = playerCharacter.transform.position;
         randomChanceCheckpoint = Random.Range(1, 3000);
         if (randomChanceCheckpoint == 1 && !CheckpointSpawned)
